@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "emoji-tester"
 include(":app")
- 
+include(":emoji-tester")
