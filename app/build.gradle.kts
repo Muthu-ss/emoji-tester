@@ -45,9 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    kapt {
-        generateStubs = true
-    }
+
 
     buildFeatures {
         viewBinding = true

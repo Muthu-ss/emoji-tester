@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.softsuave.emoji_tester.MyApplication
 import com.softsuave.emoji_tester.databinding.DrawEmojiActivityBinding
-import com.softsuave.emoji_tester.ui.adapter.OnItemClickListener
 import io.reactivex.disposables.CompositeDisposable
 import com.softsuave.emoji_tester.ui.adapter.EmojiDetectedAdapter
+import com.softsuave.emoji_tester.util.GetEmojiItemClickListener
 import timber.log.Timber
 import javax.inject.Inject
 
-class DrawEmojiActivity : AppCompatActivity(), EmojiDrawContract.View, OnItemClickListener {
+class DrawEmojiActivity : AppCompatActivity(), EmojiDrawContract.View, GetEmojiItemClickListener {
 
     @Inject
     lateinit var presenter: EmojiDrawContract.Presenter
@@ -77,7 +77,7 @@ class DrawEmojiActivity : AppCompatActivity(), EmojiDrawContract.View, OnItemCli
        // Toast.makeText(this, R.string.network_error, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemClick(emoji: String) {
+    override fun getEmojiItemClick(emoji: String) {
         Timber.d("Emoji String ====> %s", emoji)
         val returnIntent = Intent()
         returnIntent.putExtra("selectedEmoji", emoji)

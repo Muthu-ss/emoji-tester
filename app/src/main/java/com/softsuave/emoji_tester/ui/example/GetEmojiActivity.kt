@@ -11,9 +11,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.softsuave.emoji_tester.CallGetEmoji
 import com.softsuave.emoji_tester.databinding.GetEmojiActivityBinding
-import com.softsuave.emoji_tester.ui.adapter.OnItemClickListener
+import com.softsuave.emoji_tester.util.GetEmojiItemClickListener
 
-class GetEmojiActivity : AppCompatActivity(), OnItemClickListener {
+class GetEmojiActivity : AppCompatActivity(), GetEmojiItemClickListener {
     private var _binding: GetEmojiActivityBinding? = null
     private val binding by lazy { _binding!! }
     private val REQUEST_EMOJI_ICON_CODE = 1234
@@ -58,7 +58,7 @@ class GetEmojiActivity : AppCompatActivity(), OnItemClickListener {
         super.onDestroy()
         launcher.unregister()
     }
-    override fun onItemClick(emoji: String) {
+    override fun getEmojiItemClick(emoji: String) {
         Log.d("ClickedItemFromLibrary", emoji);
     }
 }

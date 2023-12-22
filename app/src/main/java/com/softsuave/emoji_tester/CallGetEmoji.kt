@@ -2,15 +2,14 @@ package com.softsuave.emoji_tester
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.softsuave.emoji_tester.ui.DrawEmojiActivity
-import com.softsuave.emoji_tester.ui.adapter.OnItemClickListener
+import com.softsuave.emoji_tester.util.GetEmojiItemClickListener
 
 class CallGetEmoji(private val activity: AppCompatActivity) {
-    private lateinit var listener: OnItemClickListener
+    private lateinit var listener: GetEmojiItemClickListener
 
-    fun setListener(listener: OnItemClickListener) {
+    fun setListener(listener: GetEmojiItemClickListener) {
         this.listener = listener
     }
 
@@ -20,6 +19,6 @@ class CallGetEmoji(private val activity: AppCompatActivity) {
     }
 
     fun handleActivityResult(selectedEmoji: String) {
-        listener.onItemClick(selectedEmoji)
+        listener.getEmojiItemClick(selectedEmoji)
     }
 }

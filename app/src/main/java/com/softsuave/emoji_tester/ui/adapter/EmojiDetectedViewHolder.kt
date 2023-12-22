@@ -5,6 +5,7 @@ import android.animation.PropertyValuesHolder
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.softsuave.emoji_tester.util.GetEmojiItemClickListener
 
 class EmojiDetectedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
     View.OnClickListener {
@@ -15,7 +16,7 @@ class EmojiDetectedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
         PropertyValuesHolder.ofFloat("scaleX", 1.2f),
         PropertyValuesHolder.ofFloat("scaleY", 1.2f)
     )
-    private var itemClickListener: OnItemClickListener? = null
+    private var itemClickListener: GetEmojiItemClickListener? = null
 
     init {
         pulseAnimation.duration = 310
@@ -35,6 +36,6 @@ class EmojiDetectedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     }
 
     override fun onClick(p0: View?) {
-        itemClickListener?.onItemClick(emojiView.text.toString())
+        itemClickListener?.getEmojiItemClick(emojiView.text.toString())
     }
 }
